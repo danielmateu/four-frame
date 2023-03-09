@@ -2,12 +2,17 @@ import React from 'react'
 import { Login, Logo, Search, Trending } from '.'
 
 export const Header = () => {
+
+    
+
     return (
         <nav className='bg-gray-800 flex flex-col md:flex-row items-center px-4 py-2 justify-between text-white text-center gap-4'>
-            <Logo/>
-            <Trending/>
-            <Search/>
-            <Login/>
+            <Logo />
+            <div className=''>
+                <Trending />
+                <Search />
+                <Login />
+            </div>
         </nav>
     )
 }

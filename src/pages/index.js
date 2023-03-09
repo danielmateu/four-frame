@@ -1,9 +1,25 @@
 import { Layout } from '@/components/Layout'
+import { SeriesList } from '@/components/SeriesList';
 import Head from 'next/head'
+import Image from 'next/image';
+import { useState } from 'react';
 
 
 
-export default function Home() {
+export default function Home({series}) {
+
+  // console.log(series);
+  // Estado para mostrar los resultados
+  const [results, setResults] = useState([]);
+  // Estado para mostrar el input
+  const [search, setSearch] = useState('');
+  // Estado para mostrar el error
+  const [error, setError] = useState(false);
+  // Estado para mostrar el loading
+  const [loading, setLoading] = useState(false);
+
+  
+
   return (
     <>
       <Head>
@@ -16,7 +32,11 @@ export default function Home() {
         title="Home"
         description="This is the home page"
       >
-
+        {/* Mostrar los resultados */}
+      <SeriesList
+        series={series}
+      />
+        
       </Layout>
     </>
   )
@@ -28,10 +48,10 @@ export const getServerSideProps = async (ctx) => {
   const res = await fetch(`https://api.themoviedb.org/3/tv/popular?api_key=${
     process.env.NEXT_PUBLIC_MOVIE_DB_API_KEY}&language=en-US&page=1`);
   const series = await res.json();
-  console.log(series);
+  // console.log(series);
   return {
     props: {
-      serie: series
+      series: series
     }
   }
 }
