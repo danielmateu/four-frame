@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+li:hover {
+    cursor: pointer;
+    color: #c2c2c2;
+    transition: .3s ease-in-out all;
+    -webkit-transition: .3s ease-in-out all;
+    -moz-transition: .3s ease-in-out all;
+    -ms-transition: .3s ease-in-out all;
+    -o-transition: .3s ease-in-out all;
+
+}
+

@@ -16,8 +16,22 @@ export default function Home() {
         title="Home"
         description="This is the home page"
       >
-        
+
       </Layout>
     </>
   )
+}
+
+
+export const getServerSideProps = async (ctx) => {
+  // your fetch function here 
+  const res = await fetch(`https://api.themoviedb.org/3/tv/popular?api_key=${
+    process.env.NEXT_PUBLIC_MOVIE_DB_API_KEY}&language=en-US&page=1`);
+  const series = await res.json();
+  console.log(series);
+  return {
+    props: {
+      serie: series
+    }
+  }
 }
