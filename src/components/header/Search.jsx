@@ -3,7 +3,7 @@ import { Magnifier } from '../icons/Magnifier'
 
 export const Search = () => {
     return (
-        <div className='hidden lg:flex relative items-center'>
+        <div className='flex relative items-center'>
             <label htmlFor="search" className='absolute pl-2 z-50 flex items-center gap-2'>
                 <Magnifier />
             </label>

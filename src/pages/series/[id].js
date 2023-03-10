@@ -1,12 +1,14 @@
+import { Aside } from '@/components/Aside';
+import { Body } from '@/components/Body';
 import { Layout } from '@/components/Layout'
-import Image from 'next/image';
-import { useRouter } from 'next/router'
+
 import React, { useState } from 'react'
 
-const SeriesPage = ({ tvShowData, tvShowVideos }) => {
+const SeriesPage = ({ tvShowData, tvShowVideos, tvShowEpisodeGroups }) => {
 
     console.log(tvShowData);
     console.log(tvShowVideos);
+    // console.log(tvShowEpisodeGroups);
 
     // Serie name
     const [serieName, setSerieName] = useState(tvShowData.name)
@@ -20,19 +22,10 @@ const SeriesPage = ({ tvShowData, tvShowVideos }) => {
 
     return (
         <Layout>
-            <main className='flex flex-col justify-center items-center'>
-                <h1 className='text-center'>{serieName}</h1>
-                <h2 className='text-center'>{voteAverage}</h2>
-                
-                <iframe className='video'
-                    title='Youtube player'
-                    sandbox='allow-same-origin allow-forms allow-popups allow-scripts allow-presentation'
-                    src={`https://youtube.com/embed/${youtubeId}?autoplay=0`}>
-                </iframe>
-
-                <h3 className='text-center'>{lastEpisodeToAir.name}</h3>
-                <p>{lastEpisodeToAir.overview}</p>
-            </main>
+            <div className='flex'>
+                <Aside tvShowData={tvShowData} />
+                <Body serieName={serieName} voteAverage={voteAverage} youtubeId={youtubeId} lastEpisodeToAir={lastEpisodeToAir} />
+            </div>
         </Layout>
     )
 }
@@ -41,17 +34,22 @@ export async function getServerSideProps(context) {
     const { id } = context.query;
 
     const [tvShowDataResponse, tvShowVideosResponse] = await Promise.all([
-        fetch(`https://api.themoviedb.org/3/tv/${id}?api_key=${process.env.NEXT_PUBLIC_MOVIE_DB_API_KEY}&language=en-US&page=1`),
-        fetch(`https://api.themoviedb.org/3/tv/${id}/videos?api_key=${process.env.NEXT_PUBLIC_MOVIE_DB_API_KEY}&language=en-US&page=1`)
+        fetch(`https://api.themoviedb.org/3/tv/${id}?api_key=${process.env.NEXT_PUBLIC_MOVIE_DB_API_KEY}&language=es-ES&page=1`),
+        fetch(`https://api.themoviedb.org/3/tv/${id}/videos?api_key=${process.env.NEXT_PUBLIC_MOVIE_DB_API_KEY}&language=en-US&page=1`),
+        // fetch(`https://api.themoviedb.org/3/tv/${id}/episode_groups?api_key=${process.env.NEXT_PUBLIC_MOVIE_DB_API_KEY}&language=en-US`)
+        
     ]);
 
     const tvShowData = await tvShowDataResponse.json();
     const tvShowVideos = await tvShowVideosResponse.json();
+    // episode groups
+    // const tvShowEpisodeGroups = await tvShowEpisodeGroupsResponse.json();
 
     return {
         props: {
             tvShowData,
-            tvShowVideos
+            tvShowVideos,
+            // tvShowEpisodeGroups
         }
     };
 }

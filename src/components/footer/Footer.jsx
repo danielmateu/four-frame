@@ -4,9 +4,9 @@ import { Favorites, Logo, Trending } from '../header'
 
 export const Footer = () => {
     return (
-        <nav className='bg-gray-800 flex flex-col md:flex-row items-center px-4 py-2 justify-between text-white text-center gap-4'>
+        <nav className='bg-slate-500 flex flex-col md:flex-row items-center px-4 py-2 justify-between text-white text-center gap-4'>
             <Logo />
-            <div className='flex'>
+            <div className='flex gap-4'>
                 <Trending />
                 <Favorites />
             </div>

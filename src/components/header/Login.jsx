@@ -5,7 +5,7 @@ import { Favorites } from '.'
 
 export const Login = () => {
     return (
-        <ul className='flex flex-col md:flex-row items-center gap-2 md:gap-4'>
+        <ul className='flex items-center gap-2 md:gap-4'>
             <Favorites/>
             <li className='bg-red-600 p-2 rounded-full text-black animate-ping transition-all'>
                 <Bell />
