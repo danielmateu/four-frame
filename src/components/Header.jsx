@@ -20,10 +20,14 @@ export const Header = () => {
         }
 
         window.addEventListener('scroll', handleScroll)
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll)
+        }
     }, [])
 
     return (
-        <header className="flex">
+        <header className={`flex ${isScrolled && 'bg-[#141414]'} `}>
             <div className="flex items-center space-x-2 md:space-x-10">
                 <img
                     src="https://rb.gy/ulxxee"
