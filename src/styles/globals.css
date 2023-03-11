@@ -2,14 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
-li:hover {
-    cursor: pointer;
-    color: #c2c2c2;
-    transition: .3s ease-in-out all;
-    -webkit-transition: .3s ease-in-out all;
-    -moz-transition: .3s ease-in-out all;
-    -ms-transition: .3s ease-in-out all;
-    -o-transition: .3s ease-in-out all;
 
+@layer base {
+    body{
+        @apply bg-[#141414] text-white;
+    }
+
+    header{
+        @apply fixed top-0 z-50 w-full items-center justify-between px-4 py-4 transition-all lg:px-10 lg:py-6
+    }
+}
+
+/* Custom ClassNames */
+@layer components {
+    .headerLink{
+        @apply cursor-pointer text-sm font-light text-[#e5e5e5] transition duration-300 ease-in-out hover:text-[#b3b3b3];
+    }
 }
 
