@@ -1,11 +1,20 @@
 
 import { Banner } from '@/components/Banner'
 import { Header } from '@/components/Header'
+import { Row } from '@/components/Row';
 import Head from 'next/head'
 import requests from '../../utils/requests';
 
 
-export default function Home({ netflixOriginals }) {
+export default function Home({
+  netflixOriginals,
+  trendingNow,
+  topRated,
+  actionMovies,
+  comedyMovies,
+  horrorMovies,
+  romanceMovies,
+  documentaries, }) {
   // console.log(netflixOriginals);
 
   return (
@@ -24,7 +33,16 @@ export default function Home({ netflixOriginals }) {
         />
         {/* Section */}
         <section>
-          
+          <Row title="Trending Now" movies={trendingNow} />
+          <Row title="Top Rated" movies={topRated} />
+          <Row title="Action Thrillers" movies={actionMovies} />
+          {/* My List */}
+          {/* {list.length > 0 && <Row title="My List" movies={list} />} */}
+
+          <Row title="Comedies" movies={comedyMovies} />
+          <Row title="Scary Movies" movies={horrorMovies} />
+          <Row title="Romance Movies" movies={romanceMovies} />
+          <Row title="Documentaries" movies={documentaries} />
         </section>
       </main>
       {/* Modal */}
@@ -51,7 +69,7 @@ export const getServerSideProps = async () => {
     horrorMovies,
     romanceMovies,
     documentaries,
-    
+
   ] = await Promise.all([
     fetch(requests.fetchNetflixOriginals).then((res) => res.json()),
     fetch(requests.fetchTrending).then((res) => res.json()),
@@ -61,7 +79,7 @@ export const getServerSideProps = async () => {
     fetch(requests.fetchHorrorMovies).then((res) => res.json()),
     fetch(requests.fetchRomanceMovies).then((res) => res.json()),
     fetch(requests.fetchDocumentaries).then((res) => res.json()),
-    
+
   ])
 
   return {
