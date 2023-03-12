@@ -1,4 +1,5 @@
 import { Banner } from '@/components/Banner'
+import { Footer } from '@/components/Footer'
 import { Header } from '@/components/Header'
 import { Row } from '@/components/Row'
 import Head from 'next/head'
@@ -30,7 +31,7 @@ const MoviesPage = ({ netflixOriginals, trendingNow, topRated, }) => {
                     {/* <Row title="Documentaries" movies={documentaries} /> */}
                 </section>
             </main>
-            {/* Modal */}
+            <Footer/>
         </div>
     )
 }

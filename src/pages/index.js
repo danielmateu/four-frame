@@ -1,8 +1,11 @@
 
 import { Banner } from '@/components/Banner'
+import { Footer } from '@/components/Footer';
 import { Header } from '@/components/Header'
 import { Row } from '@/components/Row';
 import Head from 'next/head'
+import { useState } from 'react';
+import { useRecoilValue } from 'recoil';
 import requests from '../../utils/requests';
 
 
@@ -18,6 +21,8 @@ export default function Home({
   tvShows
 }) {
   // console.log(tvShows.results);
+
+
 
   return (
     <div className='relative h-screen bg-gradient-to-b from-gray-900/10 to-[#010511] lg:h-[140vh]'>
@@ -47,7 +52,7 @@ export default function Home({
           <Row title="Documentaries" movies={documentaries} />
         </section>
       </main>
-      {/* Modal */}
+      <Footer/>
     </div>
   )
 }

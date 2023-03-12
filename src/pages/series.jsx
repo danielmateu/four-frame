@@ -1,4 +1,5 @@
 import { Banner } from '@/components/Banner'
+import { Footer } from '@/components/Footer'
 import { Header } from '@/components/Header'
 import { Row } from '@/components/Row'
 import { RowSeries } from '@/components/RowSeries'
@@ -26,15 +27,13 @@ const SeriesPage = ({netflixOriginals, documentaries, tvShows}) => {
                     <Row title="Documentaries" movies={documentaries} />
                     {/* 
                     <Row title="Action Thrillers" movies={actionMovies} />
-    
-
                     <Row title="Comedies" movies={comedyMovies} />
                     <Row title="Scary Movies" movies={horrorMovies} />
                     <Row title="Romance Movies" movies={romanceMovies} />
                     <Row title="Documentaries" movies={documentaries} /> */}
                 </section>
             </main>
-            {/* Modal */}
+            <Footer/>
         </div>
     )
 }

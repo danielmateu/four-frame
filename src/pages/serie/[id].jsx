@@ -8,7 +8,7 @@ import React, { useState } from 'react'
 import { baseUrl } from '../../../constants/movie'
 
 const SeriePage = ({ tvShowData, tvVideos, tvEpisodes, similarTvShows, tvRecommendations }) => {
-  
+
   const episodes = tvEpisodes.episodes;
   // console.log(similarTvShows.results);
   const similarShows = similarTvShows.results
@@ -28,7 +28,7 @@ const SeriePage = ({ tvShowData, tvVideos, tvEpisodes, similarTvShows, tvRecomme
 
       <main className='relative pl-4 pb-24 lg:space-y-24 lg:pl-16'>
         <div className='flex'>
-          <AsideSerie tvShowData={tvShowData}/>
+          <AsideSerie tvShowData={tvShowData} />
           <div className='flex flex-col space-y-2 py-16 md:space-y-4 lg:h-[65vh] lg:justify-end lg:pb-12'>
 
             <div className='absolute -z-10 top-0 left-0 h-[95vh] w-screen'>
@@ -62,35 +62,15 @@ const SeriePage = ({ tvShowData, tvVideos, tvEpisodes, similarTvShows, tvRecomme
                 {tvShowData.tagline}
               </p>
 
-              <RowEpisodes title='Episodios temporada 1' episodes={episodes}/>
+              <RowEpisodes title='Episodios temporada 1' episodes={episodes} />
               <p className='pt-6'></p>
-              <RowSimilar title='Similar shows' similarShows={similarShows}/>
-
+              <RowSimilar title='Similar shows' similarShows={similarShows} />
             </div>
 
           </div>
         </div>
 
-        {/* Section */}
-        <section className='md:space-y-10'>
-          <main className='w-full md:w-8/12 flex flex-col p-8'>
-            {/* Mostraremos la información del TV Show */}
-
-
-          </main>
-          {/* <Row title="Trending Now" movies={trendingNow} />
-          <Row title="Top Rated" movies={topRated} />
-          <Row title="Action Thrillers" movies={actionMovies} /> */}
-          {/* My List */}
-          {/* {list.length > 0 && <Row title="My List" movies={list} />} */}
-
-          {/* <Row title="Comedies" movies={comedyMovies} />
-          <Row title="Scary Movies" movies={horrorMovies} />
-          <Row title="Romance Movies" movies={romanceMovies} />
-          <Row title="Documentaries" movies={documentaries} /> */}
-        </section>
       </main>
-      {/* Modal */}
     </div>
   )
 }
@@ -98,7 +78,7 @@ const SeriePage = ({ tvShowData, tvVideos, tvEpisodes, similarTvShows, tvRecomme
 export async function getServerSideProps(context) {
   const { id } = context.query
   // console.log(id);
-  const [tvShowDataResponse, tvVideosResponse, tvEpisodesResponse, tvEpisodes2Response,similarTvShowsResponse, tvRecommendationsResponse] = await Promise.all([
+  const [tvShowDataResponse, tvVideosResponse, tvEpisodesResponse, tvEpisodes2Response, similarTvShowsResponse, tvRecommendationsResponse] = await Promise.all([
     // tvShowDataResponse
     fetch(`${process.env.NEXT_PUBLIC_API_URL}/tv/${id}?api_key=${process.env.NEXT_PUBLIC_MOVIE_DB_API_KEY}&language=es-ES&page=1`),
     fetch(`${process.env.NEXT_PUBLIC_API_URL}/tv/${id}/videos?api_key=${process.env.NEXT_PUBLIC_MOVIE_DB_API_KEY}&language=es-ES&page=1`),

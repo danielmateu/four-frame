@@ -1,11 +1,11 @@
 import { Banner } from '@/components/Banner'
+import { Footer } from '@/components/Footer'
 import { Header } from '@/components/Header'
 import { Row } from '@/components/Row'
 import Head from 'next/head'
-import React from 'react'
 import requests from '../../utils/requests'
 
-const MyListPage = ({  romanceMovies, comedyMovies, horrorMovies }) => {
+const MyListPage = ({ romanceMovies, comedyMovies, horrorMovies }) => {
     return (
         <div className='relative h-screen bg-gradient-to-b from-gray-900/10 to-[#010511] lg:h-[140vh]'>
             <Head>
@@ -19,22 +19,10 @@ const MyListPage = ({  romanceMovies, comedyMovies, horrorMovies }) => {
             <main className='relative pl-4 pb-24 lg:space-y-24 lg:pl-16'>
                 <Banner netflixOriginals={romanceMovies} />
                 {/* Section */}
-                {/* <section className='md:space-y-10'>
-                    <Row title="Trending Now" movies={trendingNow} />
-                    <Row title="Top Rated" movies={topRated} />
-                    <Row title="Action Thrillers" movies={actionMovies} />
-    
-
-                    
-                    
-                    <Row title="Documentaries" movies={documentaries} />
-                </section> */}
                 <Row title="Romance Movies" movies={romanceMovies} />
                 <Row title="Comedies" movies={comedyMovies} />
-                {/* <Row title="Scary Movies" movies={horrorMovies} /> */}
-
             </main>
-            {/* Modal */}
+            <Footer />
         </div>
     )
 }

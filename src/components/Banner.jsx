@@ -34,7 +34,7 @@ export const Banner = ({ netflixOriginals }) => {
             >{movie?.overview}
             </p>
 
-            <div className='flex space-x-4'>
+            {/* <div className='flex space-x-4'>
                 <button className='bannerButton bg-white text-black'>
                     <FaPlay className='h-4 w-4 text-green-400   transition' />
                     Play
@@ -43,7 +43,7 @@ export const Banner = ({ netflixOriginals }) => {
                     <InformationCircleIcon />
                     More Info
                 </button>
-            </div>
+            </div> */}
         </div>
     )
 }

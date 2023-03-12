@@ -23,16 +23,17 @@ export const AsideMovie = ({ movieData, movieReviews }) => {
             </div>
             {/* Reviews de los usuarios */}
             <div className='flex flex-col items-center'>
-                <h3>Reviews</h3>
+                <h3 className='text-xl py-4'>Reviews</h3>
                 <div className='flex gap-4'>
                     {/* Si reviews.length > 0 > */}
                     {
                         reviews.length > 0 ? (
                             reviews.map(review => (
-                                <div key={review.id}>
-                                    <Image src={`https://image.tmdb.org/t/p/w500${review.author_details.avatar_path}`} alt={`Avatar de ${review.author}`} width={50} height={50} />
-                                    <p>{review.author}</p>
-                                    <p>{review.content}</p>
+                                <div key={review.id} className='flex flex-col items-center px-10 py-6 gap-2 bg-slate-100 rounded-xl'>
+                                    <Image src={`https://image.tmdb.org/t/p/w500${review.author_details.avatar_path}`} alt={`Avatar de ${review.author}`} width={50} height={50}  className='rounded-full' />
+                                    <p className='font-semibold text-slate-600'>{review.author_details.username}</p>
+                                    <p className='text-slate-500'>{review.content.slice(0, 200)}...</p>
+                                    <a href={review.url} target='_blank' className='hover:text-slate-400 transition-colors'>Read more</a>
                                 </div>
                             ))
                         ) : (
@@ -43,7 +44,7 @@ export const AsideMovie = ({ movieData, movieReviews }) => {
             </div>
             {/* Show more + Write a review */}
             <div className='flex flex-col'>
-                <button className='px-4 py-2'>Muestra más...</button>
+                {/* <button className='px-4 py-2'>Muestra más...</button> */}
                 <button className='bg-gray-800 hover:bg-gray-600 transition text-white rounded-md px-4 py-2'>Escribe una review</button>
             </div>
 
@@ -53,10 +54,10 @@ export const AsideMovie = ({ movieData, movieReviews }) => {
 
 export const AsideSerie = ({ tvShowData }) => {
     return (
-        <aside className='hidden w-3/12 lg:flex flex-col items-center mt-40 p-10 gap-6 text-justify bg-slate-200 opacity-50 text-black rounded-2xl'>
+        <aside className='hidden w-3/12 lg:flex flex-col items-center mt-40 p-10 gap-6 text-justify bg-slate-200 bg-opacity-50 text-black rounded-2xl'>
 
             {/* Imagen */}
-            <Image src={`https://image.tmdb.org/t/p/w500${tvShowData.poster_path}`} alt={`Cartel de la pelicula ${tvShowData.name}`} width={150} height={150} />
+            <Image src={`https://image.tmdb.org/t/p/w500${tvShowData.poster_path}`} alt={`Cartel de la pelicula ${tvShowData.name}`} width={150} height={150} className='hover:scale-110 transition' />
             {/* Información */}
             <div>
 

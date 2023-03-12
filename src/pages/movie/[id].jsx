@@ -1,17 +1,17 @@
 import { AsideMovie } from '@/components/Aside';
-import { Banner } from '@/components/Banner';
+
 import { Header } from '@/components/Header'
-import { InformationCircleIcon } from '@/components/icons/InformationCircleIcon';
+// import { InformationCircleIcon } from '@/components/icons/InformationCircleIcon';
 import { Star } from '@/components/icons/Star';
+import { Row, RowSimilarMovies } from '@/components/Row';
 import Head from 'next/head'
 import Image from 'next/image';
 import React, { useState } from 'react'
-import { FaPlay } from 'react-icons/fa';
+// import { FaPlay } from 'react-icons/fa';
 import { baseUrl } from '../../../constants/movie';
 
-const MoviePage = ({ netflixOriginals, movieData, movieReviews, movieVideos, similarMovies, movieRecomendation, tvShows }) => {
-  // console.log(movieReviews,);
-  // console.log(movieData);
+const MoviePage = ({ movieData, movieReviews, movieVideos, similarMovies, movieRecomendation }) => {
+
   const [movie, setMovie] = useState(null)
   const youtubeKey = movieVideos.results[0]?.key
   return (
@@ -63,29 +63,13 @@ const MoviePage = ({ netflixOriginals, movieData, movieReviews, movieVideos, sim
                 sandbox='allow-same-origin allow-forms allow-popups allow-scripts allow-presentation'
                 src={`https://youtube.com/embed/${youtubeKey}?autoplay=0`}>
               </iframe>
+            <RowSimilarMovies title="Similar movies" similarMovies={similarMovies} />
+            {/* <RowSimilarMovies title="Similar movies" movieRecomendation={movieRecomendation} /> */}
+
             </div>
 
           </div>
         </div>
-
-        {/* Section */}
-        {/* <section className='md:space-y-10'> */}
-          {/* <main className='w-full md:w-8/12 flex flex-col p-8'> */}
-            {/* Mostraremos la información del TV Show */}
-
-
-          {/* </main> */}
-          {/* <Row title="Trending Now" movies={trendingNow} />
-          <Row title="Top Rated" movies={topRated} />
-          <Row title="Action Thrillers" movies={actionMovies} /> */}
-          {/* My List */}
-          {/* {list.length > 0 && <Row title="My List" movies={list} />} */}
-
-          {/* <Row title="Comedies" movies={comedyMovies} />
-          <Row title="Scary Movies" movies={horrorMovies} />
-          <Row title="Romance Movies" movies={romanceMovies} />
-          <Row title="Documentaries" movies={documentaries} /> */}
-        {/* </section> */}
       </main>
       {/* Modal */}
     </div>
