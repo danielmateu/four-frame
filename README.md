@@ -10,10 +10,9 @@ La aplicación ofrece las siguientes funciones:
 - Ver las películas y series de televisión por género
 - Buscar películas y series de televisión por título (Por implementar)
 
-Capturas de pantalla
-Captura de pantalla 1
+## Previsualización de la App
+[![Preview de la aplicación](https://img.youtube.com/vi/diYPQ4U0AEU/0.jpg)](https://www.youtube.com/watch?v=diYPQ4U0AEU) 
 
-Captura de pantalla 2
 
 # Cómo ejecutar la aplicación
 
