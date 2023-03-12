@@ -3,17 +3,16 @@ import React from 'react'
 import { Star } from './icons/Star'
 // import { MovieReviews } from './MovieReviews'
 
-export const AsideMovie = ({ movieData }) => {
+export const AsideMovie = ({ movieData, movieReviews }) => {
+    const reviews = movieReviews.results
+    // console.log(movieReviews);
     return (
-        <aside className='hidden w-3/12 md:flex flex-col items-center mt-40 p-10 gap-6 text-justify bg-slate-200 opacity-50 text-black rounded-2xl'>
+        <aside className='hidden w-3/12 lg:flex flex-col items-center mt-40 p-10 gap-6 text-justify bg-slate-200 bg-opacity-50 text-black rounded-2xl'>
 
             {/* Imagen */}
-            <Image src={`https://image.tmdb.org/t/p/w500${movieData.poster_path}`} alt={`Cartel de la pelicula ${movieData.name}`} width={150} height={150} />
+            <Image src={`https://image.tmdb.org/t/p/w500${movieData.poster_path}`} alt={`Cartel de la pelicula ${movieData.name}`} width={150} height={150} className='hover:scale-110 transition' />
             {/* Información */}
-            <div>
-
-                <p>{movieData.overview}</p>
-            </div>
+            <p>{movieData.overview}</p>
             {/* Muestrar puntuación */}
             <div className='flex flex-col items-center'>
                 <h3>IMDB</h3>
@@ -25,6 +24,55 @@ export const AsideMovie = ({ movieData }) => {
             {/* Reviews de los usuarios */}
             <div className='flex flex-col items-center'>
                 <h3>Reviews</h3>
+                <div className='flex gap-4'>
+                    {/* Si reviews.length > 0 > */}
+                    {
+                        reviews.length > 0 ? (
+                            reviews.map(review => (
+                                <div key={review.id}>
+                                    <Image src={`https://image.tmdb.org/t/p/w500${review.author_details.avatar_path}`} alt={`Avatar de ${review.author}`} width={50} height={50} />
+                                    <p>{review.author}</p>
+                                    <p>{review.content}</p>
+                                </div>
+                            ))
+                        ) : (
+                            <p>Actuamente no hay reviews</p>
+                        )
+                    }
+                </div>
+            </div>
+            {/* Show more + Write a review */}
+            <div className='flex flex-col'>
+                <button className='px-4 py-2'>Muestra más...</button>
+                <button className='bg-gray-800 hover:bg-gray-600 transition text-white rounded-md px-4 py-2'>Escribe una review</button>
+            </div>
+
+        </aside>
+    )
+}
+
+export const AsideSerie = ({ tvShowData }) => {
+    return (
+        <aside className='hidden w-3/12 lg:flex flex-col items-center mt-40 p-10 gap-6 text-justify bg-slate-200 opacity-50 text-black rounded-2xl'>
+
+            {/* Imagen */}
+            <Image src={`https://image.tmdb.org/t/p/w500${tvShowData.poster_path}`} alt={`Cartel de la pelicula ${tvShowData.name}`} width={150} height={150} />
+            {/* Información */}
+            <div>
+
+                <p>{tvShowData.overview}</p>
+            </div>
+            {/* Muestrar puntuación */}
+            <div className='flex flex-col items-center'>
+                <h3>IMDB</h3>
+                <div className='flex gap-4'>
+                    <Star />
+                    <p>{tvShowData.vote_average.toFixed(2)}</p>
+                </div>
+            </div>
+            {/* Reviews de los usuarios */}
+            {/* <div className='flex flex-col items-center'> */}
+                {/* <h3>Reviews</h3> */}
                 {/* <MovieReviews
                     movieReviews={movieReviews}
                 /> */}
@@ -39,7 +87,7 @@ export const AsideMovie = ({ movieData }) => {
                         </div>
                     ))}
                 </div> */}
-            </div>
+            {/* </div> */}
             {/* Show more + Write a review */}
             <div className='flex flex-col'>
                 <button className='px-4 py-2'>Show more</button>

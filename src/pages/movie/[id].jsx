@@ -9,8 +9,8 @@ import React, { useState } from 'react'
 import { FaPlay } from 'react-icons/fa';
 import { baseUrl } from '../../../constants/movie';
 
-const MoviePage = ({ netflixOriginals, movieData, movieDataReviews, movieVideos, similarMovies, movieRecomendation, tvShows }) => {
-
+const MoviePage = ({ netflixOriginals, movieData, movieReviews, movieVideos, similarMovies, movieRecomendation, tvShows }) => {
+  // console.log(movieReviews,);
   // console.log(movieData);
   const [movie, setMovie] = useState(null)
   const youtubeKey = movieVideos.results[0]?.key
@@ -29,7 +29,7 @@ const MoviePage = ({ netflixOriginals, movieData, movieDataReviews, movieVideos,
         <div className='flex'>
           <AsideMovie
             movieData={movieData}
-            movieDataReviews={movieDataReviews}
+            movieReviews={movieReviews}
           />
           <div className='flex flex-col space-y-2 py-16 md:space-y-4 lg:h-[65vh] lg:justify-end lg:pb-12'>
 
@@ -50,7 +50,7 @@ const MoviePage = ({ netflixOriginals, movieData, movieDataReviews, movieVideos,
             </p>
 
             <div className='absolute top-40 right-10 w-4/6'>
-              <div className='flex items-center'>
+              <div className='flex items-center justify-between'>
                 <h1 className='text-3xl mb-4'>{movieData.title}</h1>
                 <div className='flex gap-4'>
                   <Star />
@@ -69,12 +69,12 @@ const MoviePage = ({ netflixOriginals, movieData, movieDataReviews, movieVideos,
         </div>
 
         {/* Section */}
-        <section className='md:space-y-10'>
-          <main className='w-full md:w-8/12 flex flex-col p-8'>
+        {/* <section className='md:space-y-10'> */}
+          {/* <main className='w-full md:w-8/12 flex flex-col p-8'> */}
             {/* Mostraremos la información del TV Show */}
 
 
-          </main>
+          {/* </main> */}
           {/* <Row title="Trending Now" movies={trendingNow} />
           <Row title="Top Rated" movies={topRated} />
           <Row title="Action Thrillers" movies={actionMovies} /> */}
@@ -85,7 +85,7 @@ const MoviePage = ({ netflixOriginals, movieData, movieDataReviews, movieVideos,
           <Row title="Scary Movies" movies={horrorMovies} />
           <Row title="Romance Movies" movies={romanceMovies} />
           <Row title="Documentaries" movies={documentaries} /> */}
-        </section>
+        {/* </section> */}
       </main>
       {/* Modal */}
     </div>
@@ -104,8 +104,9 @@ export async function getServerSideProps(context) {
   ]);
 
   const movieData = await movieDataResponse.json();
-  console.log(movieData);
+  // console.log(movieData);
   const movieReviews = await movieDataReviews.json();
+  console.log(movieReviews);
   const movieVideos = await movieVideosResponse.json();
   const similarMovies = await similarMoviesResponse.json();
   const movieRecomendations = await movieRecomendationsResponse.json();

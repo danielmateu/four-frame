@@ -1,13 +1,17 @@
+import { AsideSerie } from '@/components/Aside'
 import { Header } from '@/components/Header'
 import { Star } from '@/components/icons/Star'
+import { RowEpisodes, RowSeries } from '@/components/RowSeries'
 import Head from 'next/head'
 import Image from 'next/image'
 import React, { useState } from 'react'
 import { baseUrl } from '../../../constants/movie'
 
-const SeriePage = ({tvShowData,tvVideos,tvEpisodes,similarTvShows,tvRecommendations}) => {
-  console.log(tvShowData);
-  const [movie, setMovie] = useState(null)
+const SeriePage = ({ tvShowData, tvVideos, tvEpisodes, similarTvShows, tvRecommendations }) => {
+  // console.log(tvShowData);
+  console.log(tvEpisodes.episodes);
+  const episodes = tvEpisodes.episodes;
+  const [serie, setSerie] = useState(null)
   const youtubeKey = tvVideos.results[0]?.key
 
   return (
@@ -23,10 +27,10 @@ const SeriePage = ({tvShowData,tvVideos,tvEpisodes,similarTvShows,tvRecommendati
 
       <main className='relative pl-4 pb-24 lg:space-y-24 lg:pl-16'>
         <div className='flex'>
-          {/* <AsideMovie
-            movieData={movieData}
-            movieDataReviews={movieDataReviews}
-          /> */}
+          <AsideSerie
+            tvShowData={tvShowData}
+          // movieDataReviews={movieDataReviews}
+          />
           <div className='flex flex-col space-y-2 py-16 md:space-y-4 lg:h-[65vh] lg:justify-end lg:pb-12'>
 
             <div className='absolute -z-10 top-0 left-0 h-[95vh] w-screen'>
@@ -37,33 +41,30 @@ const SeriePage = ({tvShowData,tvVideos,tvEpisodes,similarTvShows,tvRecommendati
               />
             </div>
 
-            <h1 className='text-2xl lg:text-4xl md:text-7xl font-semibold'>
-              {/* {movie?.title || movie?.name || movie?.original_name} */}
-            </h1>
-            <p
-              className='max-w-xs text-xs text-shadow-xl md:max-w-lg md:text-sm lg:max-w-2xl lg:text-base'
-            >
-              {/* {movie?.overview} */}
-            </p>
-
             <div className='absolute top-40 right-10 w-4/6'>
-              <div className='flex items-center'>
+              <div className='flex items-center justify-between'>
                 <h1 className='text-3xl mb-4'>
-                  {/* {movieData.title} */}
+                  {tvShowData?.title || tvShowData?.name || tvShowData?.original_name}
                 </h1>
                 <div className='flex gap-4'>
                   <Star />
                   <p>
-                    {/* {movieData.vote_average.toFixed(2)} */}
+                    {tvShowData.vote_average.toFixed(2)}
                   </p>
                 </div>
               </div>
 
-              {/* <iframe className='video w-full h-96'
+              <iframe className='video w-full h-96'
                 title='Youtube player'
                 sandbox='allow-same-origin allow-forms allow-popups allow-scripts allow-presentation'
                 src={`https://youtube.com/embed/${youtubeKey}?autoplay=0`}>
-              </iframe> */}
+              </iframe>
+
+              <p className='py-6'>
+                {tvShowData.tagline}
+              </p>
+
+              <RowEpisodes title='Episodios' episodes={episodes}/>
             </div>
 
           </div>
