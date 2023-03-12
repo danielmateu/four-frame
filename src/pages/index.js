@@ -32,7 +32,7 @@ export default function Home({
           netflixOriginals={netflixOriginals}
         />
         {/* Section */}
-        <section>
+        <section className='md:space-y-10'>
           <Row title="Trending Now" movies={trendingNow} />
           <Row title="Top Rated" movies={topRated} />
           <Row title="Action Thrillers" movies={actionMovies} />
