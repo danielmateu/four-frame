@@ -6,7 +6,7 @@ import { FaFacebook, FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa"
 export const Footer = () => {
 
     return (
-        <footer className='flex w-full items-center justify-between px-10 py-8 bottom-0'>
+        <footer className='flex w-full items-center justify-between px-10 py-8'>
             <div className="flex ">
                 <Link href='/'>
                     <h1 className="font-semibold cursor-pointer text-gray-200 hover:text-gray-400 transition">4 Frame</h1>

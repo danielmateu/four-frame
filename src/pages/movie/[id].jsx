@@ -26,7 +26,7 @@ const MoviePage = ({ movieData, movieReviews, movieVideos, similarMovies, movieR
       {/* Header */}
       <Header />
 
-      <main className='relative pl-4 pb-24 lg:space-y-24 lg:pl-16'>
+      <main className='relative pl-4 pb-24 lg:space-y-24 lg:pl-16 mb-14'>
         <div className='flex'>
           <AsideMovie
             movieData={movieData}

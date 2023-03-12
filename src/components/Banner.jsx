@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { baseUrl } from '../../constants/movie'
 import { FaPlay } from 'react-icons/fa'
 import { InformationCircleIcon } from './icons/InformationCircleIcon'
+import Link from 'next/link'
 
 export const Banner = ({ netflixOriginals }) => {
 
@@ -25,10 +26,13 @@ export const Banner = ({ netflixOriginals }) => {
                     objectFit="cover"
                 />
             </div>
-
+            <Link
+                href={`/movie/${movie?.id}`}
+            >
             <h1 className='text-2xl lg:text-4xl md:text-7xl font-semibold text-slate-200'>
                 {movie?.title || movie?.name || movie?.original_name}
             </h1>
+            </Link>
             <p
                 className='max-w-xs text-xs text-shadow-xl md:max-w-lg md:text-sm lg:max-w-2xl lg:text-base text-slate-300'
             >{movie?.overview}
