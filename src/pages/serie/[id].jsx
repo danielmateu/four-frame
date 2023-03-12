@@ -1,16 +1,17 @@
 import { AsideSerie } from '@/components/Aside'
 import { Header } from '@/components/Header'
 import { Star } from '@/components/icons/Star'
-import { RowEpisodes, RowSeries } from '@/components/RowSeries'
+import { RowEpisodes, RowEpisodes2, RowSeries, RowSimilar } from '@/components/RowSeries'
 import Head from 'next/head'
 import Image from 'next/image'
 import React, { useState } from 'react'
 import { baseUrl } from '../../../constants/movie'
 
 const SeriePage = ({ tvShowData, tvVideos, tvEpisodes, similarTvShows, tvRecommendations }) => {
-  // console.log(tvShowData);
-  console.log(tvEpisodes.episodes);
+  
   const episodes = tvEpisodes.episodes;
+  // console.log(similarTvShows.results);
+  const similarShows = similarTvShows.results
   const [serie, setSerie] = useState(null)
   const youtubeKey = tvVideos.results[0]?.key
 
@@ -61,7 +62,10 @@ const SeriePage = ({ tvShowData, tvVideos, tvEpisodes, similarTvShows, tvRecomme
                 {tvShowData.tagline}
               </p>
 
-              <RowEpisodes title='Episodios' episodes={episodes}/>
+              <RowEpisodes title='Episodios temporada 1' episodes={episodes}/>
+              <p className='pt-6'></p>
+              <RowSimilar title='Similar shows' similarShows={similarShows}/>
+
             </div>
 
           </div>
@@ -94,12 +98,14 @@ const SeriePage = ({ tvShowData, tvVideos, tvEpisodes, similarTvShows, tvRecomme
 export async function getServerSideProps(context) {
   const { id } = context.query
   // console.log(id);
-  const [tvShowDataResponse, tvVideosResponse, tvEpisodesResponse, similarTvShowsResponse, tvRecommendationsResponse] = await Promise.all([
+  const [tvShowDataResponse, tvVideosResponse, tvEpisodesResponse, tvEpisodes2Response,similarTvShowsResponse, tvRecommendationsResponse] = await Promise.all([
     // tvShowDataResponse
     fetch(`${process.env.NEXT_PUBLIC_API_URL}/tv/${id}?api_key=${process.env.NEXT_PUBLIC_MOVIE_DB_API_KEY}&language=es-ES&page=1`),
     fetch(`${process.env.NEXT_PUBLIC_API_URL}/tv/${id}/videos?api_key=${process.env.NEXT_PUBLIC_MOVIE_DB_API_KEY}&language=es-ES&page=1`),
     // Episodes
     fetch(`https://api.themoviedb.org/3/tv/${id}/season/1?api_key=c6aeee577586ba38e487b74dfede5deb&language=es-ES`),
+    // Season 2
+    fetch(`https://api.themoviedb.org/3/tv/${id}/season/2?api_key=c6aeee577586ba38e487b74dfede5deb&language=es-ES`),
     // Similar shows
     fetch(`https://api.themoviedb.org/3/tv/${id}/similar?api_key=c6aeee577586ba38e487b74dfede5deb&language=es-ES`),
     //Recomendations
@@ -109,6 +115,7 @@ export async function getServerSideProps(context) {
   const tvShowData = await tvShowDataResponse.json();
   const tvVideos = await tvVideosResponse.json();
   const tvEpisodes = await tvEpisodesResponse.json();
+  const tvEpisodes2 = await tvEpisodes2Response.json();
   const similarTvShows = await similarTvShowsResponse.json();
   const tvRecommendations = await tvRecommendationsResponse.json();
 
@@ -117,6 +124,7 @@ export async function getServerSideProps(context) {
       tvShowData,
       tvVideos,
       tvEpisodes,
+      tvEpisodes2,
       similarTvShows,
       tvRecommendations
     }
