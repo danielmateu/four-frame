@@ -148,7 +148,12 @@ export const RowSimilar = ({ title, similarShows }) => {
                 <div ref={rowRef} className='flex items-center space-x-0.5 overflow-x-scroll md:space-x-2.5 md:p-2 scrollbar-hide'>
                     {
                         similarShows.map(similar => (
-                            <ThumbnailSimilar similar={similar} key={similar.id} />
+                            <Link
+                                key={similar.id}
+                                href={`/serie/${similar.id}`}
+                            >
+                                <ThumbnailSimilar similar={similar} />
+                            </Link>
                         ))
                     }
                 </div>

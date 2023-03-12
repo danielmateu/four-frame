@@ -1,6 +1,7 @@
 import { AsideSerie } from '@/components/Aside'
+import { Footer } from '@/components/Footer'
 import { Header } from '@/components/Header'
-import { Star } from '@/components/icons/Star'
+import { Star, StarAside } from '@/components/icons/Star'
 import { RowEpisodes, RowEpisodes2, RowSeries, RowSimilar } from '@/components/RowSeries'
 import Head from 'next/head'
 import Image from 'next/image'
@@ -26,7 +27,7 @@ const SeriePage = ({ tvShowData, tvVideos, tvEpisodes, similarTvShows, tvRecomme
       {/* Header */}
       <Header />
 
-      <main className='relative pl-4 pb-24 lg:space-y-24 lg:pl-16'>
+      <main className='relative pl-4 pb-24 lg:space-y-24 lg:pl-16 mb-16'>
         <div className='flex'>
           <AsideSerie tvShowData={tvShowData} />
           <div className='flex flex-col space-y-2 py-16 md:space-y-4 lg:h-[65vh] lg:justify-end lg:pb-12'>
@@ -44,10 +45,10 @@ const SeriePage = ({ tvShowData, tvVideos, tvEpisodes, similarTvShows, tvRecomme
                 <h1 className='text-3xl mb-4'>
                   {tvShowData?.title || tvShowData?.name || tvShowData?.original_name}
                 </h1>
-                <div className='flex gap-4'>
+                <div className='flex gap-4 items-center'>
                   <Star />
                   <p>
-                    {tvShowData.vote_average.toFixed(2)}
+                    {tvShowData.vote_average.toFixed(2)}/10
                   </p>
                 </div>
               </div>
@@ -71,6 +72,7 @@ const SeriePage = ({ tvShowData, tvVideos, tvEpisodes, similarTvShows, tvRecomme
         </div>
 
       </main>
+      <Footer/>
     </div>
   )
 }

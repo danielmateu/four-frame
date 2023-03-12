@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import React from 'react'
-import { Star } from './icons/Star'
+import { Star, StarAside } from './icons/Star'
 // import { MovieReviews } from './MovieReviews'
 
 export const AsideMovie = ({ movieData, movieReviews }) => {
@@ -15,25 +15,31 @@ export const AsideMovie = ({ movieData, movieReviews }) => {
             <p>{movieData.overview}</p>
             {/* Muestrar puntuación */}
             <div className='flex flex-col items-center'>
-                <h3>IMDB</h3>
-                <div className='flex gap-4'>
-                    <Star />
-                    <p>{movieData.vote_average.toFixed(2)}</p>
+                <h3 className='text-2xl font-semibold text-slate-800'>IMDB</h3>
+                <div className='flex items-center gap-2'>
+                    <StarAside />
+                    <p className='text-3xl text-slate-800'>{movieData.vote_average.toFixed(2)}/10</p>
                 </div>
             </div>
             {/* Reviews de los usuarios */}
             <div className='flex flex-col items-center'>
-                <h3 className='text-xl py-4'>Reviews</h3>
+                <h3 className='text-xl py-4'>Reviews de Usuarios</h3>
                 <div className='flex gap-4'>
                     {/* Si reviews.length > 0 > */}
                     {
                         reviews.length > 0 ? (
                             reviews.map(review => (
-                                <div key={review.id} className='flex flex-col items-center px-10 py-6 gap-2 bg-slate-100 rounded-xl'>
-                                    <Image src={`https://image.tmdb.org/t/p/w500${review.author_details.avatar_path}`} alt={`Avatar de ${review.author}`} width={50} height={50}  className='rounded-full' />
-                                    <p className='font-semibold text-slate-600'>{review.author_details.username}</p>
-                                    <p className='text-slate-500'>{review.content.slice(0, 200)}...</p>
-                                    <a href={review.url} target='_blank' className='hover:text-slate-400 transition-colors'>Read more</a>
+                                <div key={review.id} className='items-center rounded-xl'>
+                                    <div className='flex gap-4'>
+                                        <Image src={`https://image.tmdb.org/t/p/w500${review.author_details.avatar_path}`} alt={`Avatar de ${review.author}`} width={50} height={50} className='rounded-full' />
+                                        <p className=''>{review.content.slice(0, 50)}...</p>
+                                    </div>
+                                    {/* <p className='font-semibold text-slate-600'>{review.author_details.username}</p> */}
+                                    <div className='flex justify-end items-center gap-4 py-4'>
+                                        <p className='text-xs text-sky-800'>2 out 25 people found this helpfull</p>
+                                        <a href={review.url} target='_blank' className='hover:text-slate-300 transition-colors text-sm'>Read more</a>
+                                    </div>
+                                        <hr />
                                 </div>
                             ))
                         ) : (
@@ -65,19 +71,19 @@ export const AsideSerie = ({ tvShowData }) => {
             </div>
             {/* Muestrar puntuación */}
             <div className='flex flex-col items-center'>
-                <h3>IMDB</h3>
-                <div className='flex gap-4'>
-                    <Star />
-                    <p>{tvShowData.vote_average.toFixed(2)}</p>
+                <h3 className='text-2xl font-semibold text-slate-800'>IMDB</h3>
+                <div className='flex gap-4 items-center'>
+                    <StarAside />
+                    <p className='text-3xl text-slate-800'>{tvShowData.vote_average.toFixed(2)}/10</p>
                 </div>
             </div>
             {/* Reviews de los usuarios */}
             {/* <div className='flex flex-col items-center'> */}
-                {/* <h3>Reviews</h3> */}
-                {/* <MovieReviews
+            {/* <h3>Reviews</h3> */}
+            {/* <MovieReviews
                     movieReviews={movieReviews}
                 /> */}
-                {/* <div className='flex gap-4'>
+            {/* <div className='flex gap-4'>
                     {reviews.map((review) => (
                         <div key={review.id} className='flex flex-col items-center'>
                             Avatar

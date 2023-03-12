@@ -26,11 +26,11 @@ export const Banner = ({ netflixOriginals }) => {
                 />
             </div>
 
-            <h1 className='text-2xl lg:text-4xl md:text-7xl font-semibold'>
+            <h1 className='text-2xl lg:text-4xl md:text-7xl font-semibold text-slate-200'>
                 {movie?.title || movie?.name || movie?.original_name}
             </h1>
             <p
-                className='max-w-xs text-xs text-shadow-xl md:max-w-lg md:text-sm lg:max-w-2xl lg:text-base'
+                className='max-w-xs text-xs text-shadow-xl md:max-w-lg md:text-sm lg:max-w-2xl lg:text-base text-slate-300'
             >{movie?.overview}
             </p>
 

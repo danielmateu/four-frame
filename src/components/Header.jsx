@@ -56,7 +56,7 @@ export const Header = () => {
                         src='https://media.licdn.com/dms/image/C4D03AQGRZXth0rFoxw/profile-displayphoto-shrink_200_200/0/1616685560578?e=1683763200&v=beta&t=0tRGc2qMIEW1AP5t1B9yM1dFJyCLKAp6MqjLItspC98'
                         width={50}
                         height={50}
-                        className="cursor-pointer object-contain rounded-xl"
+                        className="cursor-pointer object-contain rounded-xl hover:scale-95 transition"
                         alt="Logo"
                     />
                 </Link>

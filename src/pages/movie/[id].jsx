@@ -1,17 +1,18 @@
 import { AsideMovie } from '@/components/Aside';
+import { Footer } from '@/components/Footer';
 
 import { Header } from '@/components/Header'
 // import { InformationCircleIcon } from '@/components/icons/InformationCircleIcon';
 import { Star } from '@/components/icons/Star';
-import { Row, RowSimilarMovies } from '@/components/Row';
+import { Row, RowRecommendedMovies, RowSimilarMovies } from '@/components/Row';
 import Head from 'next/head'
 import Image from 'next/image';
 import React, { useState } from 'react'
 // import { FaPlay } from 'react-icons/fa';
 import { baseUrl } from '../../../constants/movie';
 
-const MoviePage = ({ movieData, movieReviews, movieVideos, similarMovies, movieRecomendation }) => {
-
+const MoviePage = ({ movieData, movieReviews, movieVideos, similarMovies, movieRecomendations }) => {
+  // console.log(movieRecomendations);
   const [movie, setMovie] = useState(null)
   const youtubeKey = movieVideos.results[0]?.key
   return (
@@ -51,10 +52,10 @@ const MoviePage = ({ movieData, movieReviews, movieVideos, similarMovies, movieR
 
             <div className='absolute top-40 right-10 w-4/6'>
               <div className='flex items-center justify-between'>
-                <h1 className='text-3xl mb-4'>{movieData.title}</h1>
-                <div className='flex gap-4'>
+                <h3 className='text-3xl mb-4'>{movieData.title}</h3>
+                <div className='flex gap-4 items-center'>
                   <Star />
-                  <p>{movieData.vote_average.toFixed(2)}</p>
+                  <p>{movieData.vote_average.toFixed(2)}/10</p>
                 </div>
               </div>
 
@@ -63,15 +64,18 @@ const MoviePage = ({ movieData, movieReviews, movieVideos, similarMovies, movieR
                 sandbox='allow-same-origin allow-forms allow-popups allow-scripts allow-presentation'
                 src={`https://youtube.com/embed/${youtubeKey}?autoplay=0`}>
               </iframe>
-            <RowSimilarMovies title="Similar movies" similarMovies={similarMovies} />
-            {/* <RowSimilarMovies title="Similar movies" movieRecomendation={movieRecomendation} /> */}
+              <div className='flex flex-col mt-10 gap-4'>
+                <RowSimilarMovies title="Peliculas similares" similarMovies={similarMovies} />
+                <p className='pt-6'></p>
+                <RowRecommendedMovies title="Nuestras recomendaciones" movieRecomendations={movieRecomendations} />
+              </div>
 
             </div>
 
           </div>
         </div>
       </main>
-      {/* Modal */}
+      <Footer />
     </div>
   )
 }
@@ -90,7 +94,7 @@ export async function getServerSideProps(context) {
   const movieData = await movieDataResponse.json();
   // console.log(movieData);
   const movieReviews = await movieDataReviews.json();
-  console.log(movieReviews);
+  // console.log(movieReviews);
   const movieVideos = await movieVideosResponse.json();
   const similarMovies = await similarMoviesResponse.json();
   const movieRecomendations = await movieRecomendationsResponse.json();

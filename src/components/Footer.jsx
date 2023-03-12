@@ -27,10 +27,10 @@ export const Footer = () => {
                 </Link>
             </ul>
             <div className="flex items-center space-x-4 text-sm font-light">
-                <FaFacebook />
-                <FaTwitter />
-                <FaInstagram />
-                <FaYoutube />
+                <FaFacebook className="hover:scale-125 transition" />
+                <FaTwitter className="hover:scale-125 transition" />
+                <FaInstagram className="hover:scale-125 transition" />
+                <FaYoutube className="hover:scale-125 transition" />
             </div>
         </footer>
     )
