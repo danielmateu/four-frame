@@ -14,8 +14,10 @@ export default function Home({
   comedyMovies,
   horrorMovies,
   romanceMovies,
-  documentaries, }) {
-  // console.log(netflixOriginals);
+  documentaries,
+  tvShows
+}) {
+  // console.log(tvShows.results);
 
   return (
     <div className='relative h-screen bg-gradient-to-b from-gray-900/10 to-[#010511] lg:h-[140vh]'>
@@ -30,12 +32,14 @@ export default function Home({
       <main className='relative pl-4 pb-24 lg:space-y-24 lg:pl-16'>
         <Banner
           netflixOriginals={netflixOriginals}
+          tvShows={tvShows}
         />
         {/* Section */}
         <section className='md:space-y-10'>
-          <Row title="Trending Now" movies={trendingNow} />
+          {/* <Row title="Trending Now" movies={trendingNow} /> */}
+          <Row title="Netflix Originals" movies={netflixOriginals} />
           <Row title="Top Rated" movies={topRated} />
-          <Row title="Action Thrillers" movies={actionMovies} />
+          {/* <Row title="Action Thrillers" movies={actionMovies} /> */}
           {/* My List */}
           {/* {list.length > 0 && <Row title="My List" movies={list} />} */}
 
@@ -50,15 +54,8 @@ export default function Home({
   )
 }
 
-// You should use getServerSideProps when:
-// - Only if you need to pre-render a page whose data must be fetched at request time
+
 export const getServerSideProps = async () => {
-  // const products = await getProducts(payments, {
-  //   includePrices: true,
-  //   activeOnly: true,
-  // })
-  //   .then((res) => res)
-  //   .catch((error) => console.log(error.message))
 
   const [
     netflixOriginals,
@@ -69,6 +66,7 @@ export const getServerSideProps = async () => {
     horrorMovies,
     romanceMovies,
     documentaries,
+    tvShows
 
   ] = await Promise.all([
     fetch(requests.fetchNetflixOriginals).then((res) => res.json()),
@@ -79,7 +77,7 @@ export const getServerSideProps = async () => {
     fetch(requests.fetchHorrorMovies).then((res) => res.json()),
     fetch(requests.fetchRomanceMovies).then((res) => res.json()),
     fetch(requests.fetchDocumentaries).then((res) => res.json()),
-
+    fetch(requests.fetchTvShows).then((res) => res.json()),
   ])
 
   return {
@@ -92,31 +90,12 @@ export const getServerSideProps = async () => {
       horrorMovies,
       romanceMovies,
       documentaries,
-      // products,
+      tvShows
     },
   }
 }
 
-// export async function getServerSideProps(context) {
 
-//   const [
-//     trendingMoviesData, 
-//     trendingSeriesData
-//   ] = await Promise.all([
-//     fetch(`https://api.themoviedb.org/3/trending/movie/day?api_key=c6aeee577586ba38e487b74dfede5deb`),
-//     fetch(`https://api.themoviedb.org/3/trending/tv/day?api_key=c6aeee577586ba38e487b74dfede5deb`),
-//   ])
-
-//   const trendingMovies = await trendingMoviesData.json()
-//   const trendingSeries = await trendingSeriesData.json()
-//   return {
-//     props: {
-//       trendingMovies,
-//       trendingSeries
-//       // similarTvShows
-//     }
-//   }
-// }
 
 
 

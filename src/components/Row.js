@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React, { useState } from 'react'
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa'
 import { Thumbnail } from './Thumbnail'
@@ -27,11 +28,8 @@ export const Row = ({ title, movies }) => {
             <div className='group relative md:-ml-2'>
 
                 <FaChevronLeft
-                    className={`absolute top-0 bottom-0 left-2 z-40 m-auto h-9 w-9 cursor-pointer opacity-0 transition hover:scale-125 group-hover:opacity-100 
-                        }`}
+                    className={`absolute top-0 bottom-0 left-2 z-40 m-auto h-9 w-9 cursor-pointer opacity-0 transition hover:scale-125 group-hover:opacity-100}`}
                     onClick={() => {
-                        // rowRef.current.scrollLeft -= 200;
-                        // setIsMoved(true);
                         handleClick('left');
                     }}
                 />
@@ -39,7 +37,12 @@ export const Row = ({ title, movies }) => {
                 <div ref={rowRef} className='flex items-center space-x-0.5 overflow-x-scroll md:space-x-2.5 md:p-2 scrollbar-hide'>
                     {
                         moviesList.map(movie => (
-                            <Thumbnail key={movie.id} movie={movie} />
+                            <Link
+                                key={movie.id}
+                                href={`/movie/${movie.id}`}
+                            >
+                                <Thumbnail movie={movie} />
+                            </Link>
                         ))
                     }
                 </div>
