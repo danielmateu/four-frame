@@ -1,6 +1,7 @@
 import { Banner } from '@/components/Banner'
 import { Header } from '@/components/Header'
 import { Row } from '@/components/Row'
+import { RowSeries } from '@/components/RowSeries'
 import Head from 'next/head'
 import React from 'react'
 import requests from '../../utils/requests'
@@ -20,7 +21,8 @@ const SeriesPage = ({netflixOriginals, documentaries, tvShows}) => {
                 <Banner netflixOriginals={tvShows}/>
                 {/* Section */}
                 <section className='md:space-y-10'>
-                    <Row title="Trending Now" movies={tvShows} />
+                    {/* <Row title="Trending Now" movies={tvShows} /> */}
+                    <RowSeries title="Trending Now" series={tvShows}/>
                     <Row title="Documentaries" movies={documentaries} />
                     {/* 
                     <Row title="Action Thrillers" movies={actionMovies} />

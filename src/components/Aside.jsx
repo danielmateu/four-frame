@@ -5,7 +5,7 @@ import { Star } from './icons/Star'
 
 export const AsideMovie = ({ movieData }) => {
     return (
-        <aside className='hidden w-3/12 md:flex flex-col items-center mt-20 p-10 gap-10 text-justify'>
+        <aside className='hidden w-3/12 md:flex flex-col items-center mt-40 p-10 gap-6 text-justify bg-slate-200 opacity-50 text-black rounded-2xl'>
 
             {/* Imagen */}
             <Image src={`https://image.tmdb.org/t/p/w500${movieData.poster_path}`} alt={`Cartel de la pelicula ${movieData.name}`} width={150} height={150} />
@@ -43,7 +43,7 @@ export const AsideMovie = ({ movieData }) => {
             {/* Show more + Write a review */}
             <div className='flex flex-col'>
                 <button className='px-4 py-2'>Show more</button>
-                <button className='bg-gray-800 text-white rounded-md px-4 py-2'>Write a review</button>
+                <button className='bg-gray-800 hover:bg-gray-600 transition text-white rounded-md px-4 py-2'>Write a review</button>
             </div>
 
         </aside>
