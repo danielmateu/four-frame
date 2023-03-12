@@ -1,6 +1,9 @@
-# 4 FrameApp
+# 4Frame
 
 MovieDB Explorer es una aplicación que utiliza React, NextJS, TailwindCSS y react-icons para conectarse a la API de The Movie DB y obtener información sobre películas y series de televisión.
+
+## App desplegada en Vercel 😊
+(https://four-frame.vercel.app/)
 
 # Funciones
 La aplicación ofrece las siguientes funciones:
@@ -51,4 +54,4 @@ react-icons
 API de The Movie DB
 
 # Autor
-Esta aplicación fue creada por [Tu nombre aquí]. Puedes contactar conmigo en [tu correo electrónico aquí] o visitar mi sitio web en [tu sitio web aquí].
+Esta aplicación fue creada por Daniel Mateu. Puedes contactar conmigo en [danielmateu86@gmail.com] o visitar mi sitio web en [https://daniel-mateu-portfolio.vercel.app/].
