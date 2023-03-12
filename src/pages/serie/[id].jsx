@@ -27,10 +27,7 @@ const SeriePage = ({ tvShowData, tvVideos, tvEpisodes, similarTvShows, tvRecomme
 
       <main className='relative pl-4 pb-24 lg:space-y-24 lg:pl-16'>
         <div className='flex'>
-          <AsideSerie
-            tvShowData={tvShowData}
-          // movieDataReviews={movieDataReviews}
-          />
+          <AsideSerie tvShowData={tvShowData}/>
           <div className='flex flex-col space-y-2 py-16 md:space-y-4 lg:h-[65vh] lg:justify-end lg:pb-12'>
 
             <div className='absolute -z-10 top-0 left-0 h-[95vh] w-screen'>
@@ -41,7 +38,7 @@ const SeriePage = ({ tvShowData, tvVideos, tvEpisodes, similarTvShows, tvRecomme
               />
             </div>
 
-            <div className='absolute top-40 right-10 w-4/6'>
+            <div className='absolute top-40 xs:left-32 md:right-10 md:w-8/12'>
               <div className='flex items-center justify-between'>
                 <h1 className='text-3xl mb-4'>
                   {tvShowData?.title || tvShowData?.name || tvShowData?.original_name}

@@ -95,12 +95,7 @@ export const RowEpisodes = ({ title, episodes }) => {
                 <div ref={rowRef} className='flex items-center space-x-0.5 overflow-x-scroll md:space-x-2.5 md:p-2 scrollbar-hide'>
                     {
                         episodes.map(episode => (
-                            <Link
-                                key={episode.id}
-                                href={`/serie/${episode.id}`}
-                            >
-                                <ThumbnailEpisodes episode={episode} />
-                            </Link>
+                            <ThumbnailEpisodes episode={episode} key={episode.id} />
                         ))
                     }
                 </div>
