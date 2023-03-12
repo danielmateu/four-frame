@@ -14,7 +14,7 @@ La aplicación ofrece las siguientes funciones:
 - Buscar películas y series de televisión por título (Por implementar)
 
 ## Previsualización de la App
-[![Preview de la aplicación](https://img.youtube.com/vi/diYPQ4U0AEU/0.jpg)](https://www.youtube.com/watch?v=diYPQ4U0AEU) 
+[![Preview de la aplicación]](https://www.youtube.com/watch?v=diYPQ4U0AEU) 
 
 
 # Cómo ejecutar la aplicación
