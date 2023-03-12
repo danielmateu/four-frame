@@ -7,12 +7,12 @@ export const AsideMovie = ({ movieData, movieReviews }) => {
     const reviews = movieReviews.results
     // console.log(movieReviews);
     return (
-        <aside className='hidden w-3/12 lg:flex flex-col items-center mt-40 p-10 gap-6 text-justify bg-slate-200 bg-opacity-50 text-black rounded-2xl'>
+        <aside className='hidden w-3/12 lg:flex flex-col items-center mt-40 py-10 px-8 gap-6 text-justify bg-slate-200 bg-opacity-50 text-black rounded-2xl'>
 
             {/* Imagen */}
             <Image src={`https://image.tmdb.org/t/p/w500${movieData.poster_path}`} alt={`Cartel de la pelicula ${movieData.name}`} width={150} height={150} className='hover:scale-110 transition' />
             {/* Información */}
-            <p>{movieData.overview}</p>
+            <p>{movieData.overview.slice(0, 250)}...</p>
             {/* Muestrar puntuación */}
             <div className='flex flex-col items-center'>
                 <h3 className='text-2xl font-semibold text-slate-800'>IMDB</h3>
@@ -30,7 +30,7 @@ export const AsideMovie = ({ movieData, movieReviews }) => {
                         reviews.length > 0 ? (
                             reviews.map(review => (
                                 <div key={review.id} className='items-center rounded-xl'>
-                                    <div className='flex gap-4'>
+                                    <div className='gap-4'>
                                         <Image src={`https://image.tmdb.org/t/p/w500${review.author_details.avatar_path}`} alt={`Avatar de ${review.author}`} width={50} height={50} className='rounded-full' />
                                         <p className=''>{review.content.slice(0, 50)}...</p>
                                     </div>

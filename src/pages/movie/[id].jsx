@@ -50,7 +50,7 @@ const MoviePage = ({ movieData, movieReviews, movieVideos, similarMovies, movieR
             >{movie?.overview}
             </p>
 
-            <div className='absolute top-40 right-10 w-4/6'>
+            <div className='absolute top-40 right-16 md:right-8 w-4/6'>
               <div className='flex items-center justify-between'>
                 <h3 className='text-3xl mb-4'>{movieData.title}</h3>
                 <div className='flex gap-4 items-center'>
@@ -64,9 +64,9 @@ const MoviePage = ({ movieData, movieReviews, movieVideos, similarMovies, movieR
                 sandbox='allow-same-origin allow-forms allow-popups allow-scripts allow-presentation'
                 src={`https://youtube.com/embed/${youtubeKey}?autoplay=0`}>
               </iframe>
-              <div className='flex flex-col mt-10 gap-4'>
+              <div className='flex flex-col mt-5 md:mt-10 gap-0'>
                 <RowSimilarMovies title="Peliculas similares" similarMovies={similarMovies} />
-                <p className='pt-6'></p>
+                {/* <p className=''></p> */}
                 <RowRecommendedMovies title="Nuestras recomendaciones" movieRecomendations={movieRecomendations} />
               </div>
 
