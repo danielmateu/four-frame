@@ -27,7 +27,7 @@ const SeriePage = ({ tvShowData, tvVideos, tvEpisodes, similarTvShows, tvRecomme
       {/* Header */}
       <Header />
 
-      <main className='relative pl-4 pb-24 lg:space-y-24 lg:pl-16 mb-16'>
+      <main className='relative pl-4 pb-24 lg:space-y-24 lg:pl-16 mb-14'>
         <div className='flex'>
           <AsideSerie tvShowData={tvShowData} />
           <div className='flex flex-col space-y-2 py-16 md:space-y-4 lg:h-[65vh] lg:justify-end lg:pb-12'>
@@ -40,15 +40,14 @@ const SeriePage = ({ tvShowData, tvVideos, tvEpisodes, similarTvShows, tvRecomme
               />
             </div>
 
-            <div className='absolute top-40 xs:left-32 md:right-10 md:w-8/12'>
+            <div className='absolute top-40 right-16 md:right-8 w-4/6'>
               <div className='flex items-center justify-between'>
-                <h1 className='text-3xl mb-4'>
+                <h3 className='text-3xl mb-4'>
                   {tvShowData?.title || tvShowData?.name || tvShowData?.original_name}
-                </h1>
+                </h3>
                 <div className='flex gap-4 items-center'>
                   <Star />
-                  <p>
-                    {tvShowData.vote_average.toFixed(2)}/10
+                  <p>{tvShowData.vote_average.toFixed(2)}/10
                   </p>
                 </div>
               </div>
@@ -63,16 +62,16 @@ const SeriePage = ({ tvShowData, tvVideos, tvEpisodes, similarTvShows, tvRecomme
                 {tvShowData.tagline}
               </p>
 
-              <RowEpisodes title='Episodios temporada 1' episodes={episodes} />
-              <p className='pt-6'></p>
-              <RowSimilar title='Similar shows' similarShows={similarShows} />
+              <div className='flex flex-col mt-5 md:mt-10 gap-0'>
+                <RowEpisodes title='Episodios temporada 1' episodes={episodes} />
+                <p className='pt-6'></p>
+                <RowSimilar title='Similar shows' similarShows={similarShows} />
+              </div>
             </div>
-
           </div>
         </div>
-
       </main>
-      <Footer/>
+      <Footer />
     </div>
   )
 }

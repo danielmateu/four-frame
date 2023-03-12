@@ -28,10 +28,7 @@ const MoviePage = ({ movieData, movieReviews, movieVideos, similarMovies, movieR
 
       <main className='relative pl-4 pb-24 lg:space-y-24 lg:pl-16 mb-14'>
         <div className='flex'>
-          <AsideMovie
-            movieData={movieData}
-            movieReviews={movieReviews}
-          />
+          <AsideMovie movieData={movieData} movieReviews={movieReviews}/>
           <div className='flex flex-col space-y-2 py-16 md:space-y-4 lg:h-[65vh] lg:justify-end lg:pb-12'>
 
             <div className='absolute -z-10 top-0 left-0 h-[95vh] w-screen'>
