@@ -15,20 +15,25 @@ Captura de pantalla 1
 
 Captura de pantalla 2
 
-Cómo ejecutar la aplicación
+# Cómo ejecutar la aplicación
+
 Para ejecutar la aplicación, sigue los siguientes pasos:
 
 Clona el repositorio de GitHub en tu ordenador
+````
+https://github.com/danielmateu/four-frame.git
+````
 
 Abre una terminal en el directorio raíz de la aplicación
 
 Ejecuta el siguiente comando para instalar las dependencias:
+
 ``````
 npm install
 ````
 
 Crea un archivo .env.local en el directorio raíz de la aplicación y agrega tu API key de The Movie DB como sigue:
-``````
+````
 NEXT_PUBLIC_MOVIE_DB_API_KEY=your_api_key_here
 ````
 
@@ -37,7 +42,7 @@ Ejecuta el siguiente comando para iniciar la aplicación:
 npm run dev
 ````
 
-Tecnologías utilizadas
+# Tecnologías utilizadas
 La aplicación utiliza las siguientes tecnologías:
 
 React
