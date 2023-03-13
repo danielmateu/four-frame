@@ -19,8 +19,8 @@ const MyListPage = ({ romanceMovies, comedyMovies, horrorMovies }) => {
             <main className='relative pl-4 pb-24 lg:space-y-24 lg:pl-16'>
                 <Banner netflixOriginals={romanceMovies} />
                 {/* Section */}
-                <Row title="Romance Movies" movies={romanceMovies} />
-                <Row title="Comedies" movies={comedyMovies} />
+                <Row title="Románticas" movies={romanceMovies} />
+                <Row title="Comedias" movies={comedyMovies} />
             </main>
             <Footer />
         </div>

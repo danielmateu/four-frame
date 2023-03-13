@@ -25,12 +25,12 @@ const NewAndPopularPage = ({ trendingNow, topRated, actionMovies, comedyMovies, 
                 {/* Section */}
                 <section className='md:space-y-10'>
                     {/* <Row title="Trending Now" movies={trendingNow} /> */}
-                    <Row title="Top Rated" movies={topRated} />
-                    <Row title="Action Thrillers" movies={actionMovies} />
-                    <Row title="Comedies" movies={comedyMovies} />
-                    <Row title="Scary Movies" movies={horrorMovies} />
-                    <Row title="Romance Movies" movies={romanceMovies} />
-                    <Row title="Documentaries" movies={documentaries} />
+                    <Row title="Mejor valoradas" movies={topRated} />
+                    <Row title="Thrillers de acción" movies={actionMovies} />
+                    <Row title="Comedias" movies={comedyMovies} />
+                    <Row title="Miedo" movies={horrorMovies} />
+                    <Row title="Románticas" movies={romanceMovies} />
+                    <Row title="Documentales" movies={documentaries} />
                 </section>
             </main>
             <Footer/>

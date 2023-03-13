@@ -23,8 +23,8 @@ const SeriesPage = ({netflixOriginals, documentaries, tvShows}) => {
                 {/* Section */}
                 <section className='md:space-y-10'>
                     {/* <Row title="Trending Now" movies={tvShows} /> */}
-                    <RowSeries title="Trending Now" series={tvShows}/>
-                    <Row title="Documentaries" movies={documentaries} />
+                    <RowSeries title="Actualidad" series={tvShows}/>
+                    <Row title="Documentales" movies={documentaries} />
                     {/* 
                     <Row title="Action Thrillers" movies={actionMovies} />
                     <Row title="Comedies" movies={comedyMovies} />

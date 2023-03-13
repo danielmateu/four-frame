@@ -21,8 +21,8 @@ const MoviesPage = ({ netflixOriginals, trendingNow, topRated, }) => {
                 <Banner netflixOriginals={trendingNow}/>
                 {/* Section */}
                 <section className='md:space-y-10'>
-                    <Row title="Most viewed" movies={netflixOriginals} />
-                    <Row title="Top Rated" movies={topRated} />
+                    <Row title="Las más vistas" movies={netflixOriginals} />
+                    <Row title="Mejor valoradas" movies={topRated} />
                     {/* <Row title="Trending Now" movies={trendingNow} /> */}
                     {/* <Row title="Action Thrillers" movies={actionMovies} /> */}
                     {/* <Row title="Comedies" movies={comedyMovies} /> */}

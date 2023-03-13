@@ -65,7 +65,7 @@ const SeriePage = ({ tvShowData, tvVideos, tvEpisodes, similarTvShows, tvRecomme
               <div className='flex flex-col mt-5 md:mt-10 gap-0'>
                 <RowEpisodes title='Episodios temporada 1' episodes={episodes} />
                 <p className='pt-6'></p>
-                <RowSimilar title='Similar shows' similarShows={similarShows} />
+                <RowSimilar title='Series similares' similarShows={similarShows} />
               </div>
             </div>
           </div>

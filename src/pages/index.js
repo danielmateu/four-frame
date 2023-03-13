@@ -42,14 +42,14 @@ export default function Home({
         {/* Section */}
         <section className='md:space-y-10'>
           {/* <Row title="Trending Now" movies={trendingNow} /> */}
-          <Row title="Netflix Originals" movies={netflixOriginals} />
-          <Row title="Top Rated" movies={topRated} />
-          <Row title="Action Thrillers" movies={actionMovies} />
+          <Row title="Originales" movies={netflixOriginals} />
+          <Row title="Mejor Valoradas" movies={topRated} />
+          <Row title="Thrillers de acción" movies={actionMovies} />
           {/* {list.length > 0 && <Row title="My List" movies={list} />} */}
-          <Row title="Comedies" movies={comedyMovies} />
+          <Row title="Comedias" movies={comedyMovies} />
           {/* <Row title="Scary Movies" movies={horrorMovies} /> */}
           {/* <Row title="Romance Movies" movies={romanceMovies} /> */}
-          <Row title="Documentaries" movies={documentaries} />
+          <Row title="Documentales" movies={documentaries} />
         </section>
       </main>
       <Footer/>
