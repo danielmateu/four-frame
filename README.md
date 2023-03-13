@@ -3,7 +3,7 @@
 MovieDB Explorer es una aplicación que utiliza React, NextJS, TailwindCSS y react-icons para conectarse a la API de The Movie DB y obtener información sobre películas y series de televisión.
 
 ## App desplegada en Vercel 😊
-(https://four-frame.vercel.app/)
+https://four-frame.vercel.app/
 
 # Funciones
 La aplicación ofrece las siguientes funciones:
@@ -14,7 +14,7 @@ La aplicación ofrece las siguientes funciones:
 - Buscar películas y series de televisión por título (Por implementar)
 
 ## Previsualización de la App
-[![Preview de la aplicación](https://img.youtube.com/vi/diYPQ4U0AEU/0.jpg)](https://www.youtube.com/watch?v=diYPQ4U0AEU) 
+[![Preview de la aplicación]](https://www.youtube.com/watch?v=diYPQ4U0AEU) 
 
 
 # Cómo ejecutar la aplicación
@@ -29,8 +29,7 @@ https://github.com/danielmateu/four-frame.git
 Abre una terminal en el directorio raíz de la aplicación
 
 Ejecuta el siguiente comando para instalar las dependencias:
-
-``````
+````
 npm install
 ````
 
